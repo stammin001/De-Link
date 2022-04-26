@@ -4,6 +4,17 @@
 
 Improve the "Trust" aspects of the information on professional sites like Linked-In
 
+## Table of Contents
+
+- [Introduction](#introduction)
+- [Documentary](#documentary)
+- [Initial Architecture](#initial-architecture)
+- [Deliverables](#deliverables)
+    - [Milestone 1](#milestone-1)
+    - [Milestone 2](#milestone-2)
+    - [Milestone 3](#milestone-3)
+- [Tech Stack](#tech-stack)
+
 ## Introduction
 
 One of the promising aspects of Blockchain technology is to bring "Trust" to the information across the board, which is a huge problem to address. In the space of professional networks, even though sites Linked-In help with improving authenticity of the information, there is still huge scope for improvement. At the same time, organizations spend billions of dollars to verify different data points throughout various interactions with their employees and other organizations. If we can bring some part of this verified information on-chain as appropriate into sites like Linked-In, it will have a significant impact.

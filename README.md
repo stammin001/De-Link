@@ -7,7 +7,6 @@ Improve the "Trust" aspects of the information on professional sites like Linked
 ## Table of Contents
 
 - [Introduction](#introduction)
-- [Documentary](#documentary)
 - [Initial Architecture](#initial-architecture)
 - [Deliverables](#deliverables)
     - [Milestone 1](#milestone-1)
@@ -19,9 +18,7 @@ Improve the "Trust" aspects of the information on professional sites like Linked
 
 One of the promising aspects of Blockchain technology is to bring "Trust" to the information across the board, which is a huge problem to address. In the space of professional networks, even though sites like Linked-In help with improving authenticity of the information, there is still huge scope for improvement. At the same time, organizations spend billions of dollars to verify different data points throughout various interactions with their employees and other organizations. If we can bring some part of this verified information on-chain as appropriate into sites like Linked-In, it will have a significant impact.
 
-## Documentary
-
-Given that the information in these professional sites is going to be quite diverse, this would be an attempt to see what can be done to improve trust aspects one at a time as part of ChainLink hackathon using ChainLink Oracles. Once we have basic pieces working, goal would be to expand on this further to make it more comprehensive.
+**Note:** Given that the information in these professional sites is going to be quite diverse, this would be an attempt to see what can be done to improve trust aspects one at a time as part of ChainLink hackathon using ChainLink Oracles. Once we have basic pieces working, goal would be to expand on this further beyond this hackathon to make it more comprehensive.
 
 ## Initial Architecture
 

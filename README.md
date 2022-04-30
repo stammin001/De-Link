@@ -24,7 +24,7 @@ One of the promising aspects of Blockchain technology is to bring "Trust" to the
 
 Approach for the architectural pieces would be to gradually move from Web2.0 to Web3.0.
 
-![0.1](architecture_0.1.PNG "Initial Arch")
+![0.1](architecture.PNG "Initial Arch")
 
 ## Deliverables
 

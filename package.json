@@ -1,0 +1,32 @@
+{
+  "name": "link3.0",
+  "version": "1.0.0",
+  "description": "Improve the \"Trust\" aspects of the information on professional sites like Linked-In",
+  "main": "index.js",
+  "scripts": {
+    
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stammin001/Link3.0.git"
+  },
+  "author": "Chainlink-Hackathon Team",
+  "license": "ISC",
+  "devDependencies": {
+    "@nomiclabs/hardhat-ethers": "npm:hardhat-deploy-ethers@^0.3.0-beta.13",
+    "@nomiclabs/hardhat-waffle": "^2.0.3",
+    "chai": "^4.3.6",
+    "ethereum-waffle": "^3.4.4",
+    "ethers": "^5.6.4",
+    "hardhat": "^2.9.3",
+    "hardhat-deploy": "^0.11.4"
+  },
+  "bugs": {
+    "url": "https://github.com/stammin001/Link3.0/issues"
+  },
+  "homepage": "https://github.com/stammin001/Link3.0#readme",
+  "dependencies": {
+    "@chainlink/contracts": "^0.4.0",
+    "dotenv": "^16.0.0"
+  }
+}

@@ -1,7 +1,8 @@
 require("@nomiclabs/hardhat-waffle");
 require("hardhat-deploy");
 require("@nomiclabs/hardhat-ethers");
-require("dotenv").config()
+require("dotenv").config();
+require("@nomiclabs/hardhat-etherscan");
 
 const PRIVATE_KEY = process.env.PRIVATE_KEY_1;
 const KOVAN_URL = process.env.KOVAN_URL;

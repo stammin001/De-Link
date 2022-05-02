@@ -7,6 +7,7 @@ require("@nomiclabs/hardhat-etherscan");
 const PRIVATE_KEY = process.env.PRIVATE_KEY_1;
 const KOVAN_URL = process.env.KOVAN_URL;
 const RINKEBY_URL = process.env.RINKEBY_URL;
+const ETHERSCAN_KEY = process.env.ETHERSCAN_KEY;
 
 task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
   const accounts = await hre.ethers.getSigners();
@@ -57,5 +58,8 @@ module.exports = {
   },
   paths: {
     sources: "contracts",
+  },
+  etherscan: {
+    apiKey: ETHERSCAN_KEY,
   },
 };

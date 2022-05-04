@@ -6,13 +6,13 @@ Improve the "Trust" aspects of the information on professional sites like Linked
 
 ## Table of Contents
 
-- [Introduction](#introduction)
-- [Initial Architecture](#initial-architecture)
-- [Deliverables](#deliverables)
-    - [Milestone 1](#milestone-1)
-    - [Milestone 2](#milestone-2)
-    - [Milestone 3](#milestone-3)
-- [Tech Stack](#tech-stack)
+-   [Introduction](#introduction)
+-   [Initial Architecture](#initial-architecture)
+-   [Deliverables](#deliverables)
+    -   [Milestone 1](#milestone-1)
+    -   [Milestone 2](#milestone-2)
+    -   [Milestone 3](#milestone-3)
+-   [Tech Stack](#tech-stack)
 
 ## Introduction
 
@@ -32,6 +32,12 @@ Approach for the architectural pieces would be to gradually move from Web2.0 to 
 
 A basic application that can bring few data points like Name, Profile Pic, Profession, Education that is part of public information from linked-in. Ability to connect to Metamask Wallet. Provide a button to validate education and send this information to smart contract.
 
+### Test Front End
+
+cd /website
+npm install
+npm start
+
 ### Milestone 2
 
 Smart contract sends the information to be validated to Oracle and sends the response from Oracle back to the calling application. This can be done using mock-up data for initial validation of flow. Have test scripts in place to test the flow.
@@ -42,11 +48,11 @@ Oracle makes calls to other applications like private blockchain, public APIs us
 
 ## Tech Stack
 
-* Front-End: Java Script, React, TBD
-* Public Blockchain: Ethereum, HardHat, Chai, IPFS
-* Oracle: ChainLink
-* Private Blockchain: Hyperledger Indy
-* Database: Amazon S3
-* Web Server: AWS/TBD
-* APIs: TBD
-* ZK: TBD
+-   Front-End: Java Script, React, TBD
+-   Public Blockchain: Ethereum, HardHat, Chai, IPFS
+-   Oracle: ChainLink
+-   Private Blockchain: Hyperledger Indy
+-   Database: Amazon S3
+-   Web Server: AWS/TBD
+-   APIs: TBD
+-   ZK: TBD

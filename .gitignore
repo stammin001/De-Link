@@ -355,3 +355,9 @@ other/
 cache/
 deployments/
 .env
+
+
+website/node_modules
+website/.next
+
+.DS_Store

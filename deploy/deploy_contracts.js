@@ -7,7 +7,13 @@ module.exports = async ({
     const {deploy} = deployments;
     const {deployer} = await getNamedAccounts();
   
-    await deploy('APIConsumer_2', {
+    await deploy('APIConsumer', {
+      from: deployer,
+      args: [],
+      log: true,
+    });
+
+    await deploy('APIClient', {
       from: deployer,
       args: [],
       log: true,

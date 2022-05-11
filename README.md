@@ -42,7 +42,7 @@ Oracle makes calls to other applications like private blockchain, public APIs us
 
 ## Getting Started
 
-First, run the development server:
+Install needed modules and run the development server:
 
 ```bash
 npm install

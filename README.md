@@ -40,6 +40,21 @@ Smart contract sends the information to be validated to Oracle and sends the res
 
 Oracle makes calls to other applications like private blockchain, public APIs using appropriate authentication mechanisms. Data in these can still be mock-up.
 
+## Getting Started
+
+First, run the development server:
+
+```bash
+npm install
+npm run dev
+# or
+yarn dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) 
+
+Connect to Wallet > Enter Education Credentials > Save Data > Validate Credentials > Get Credential Result
+
 ## Tech Stack
 
 * Front-End: Java Script, React, TBD

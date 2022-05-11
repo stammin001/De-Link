@@ -1,0 +1,11 @@
+[
+    {
+        "university" : [
+            "MIT", "Standford", "University of Texas"
+        ],
+
+        "degree" : [
+            "Computers", "Arts", "Electrical"
+        ]
+    }
+]

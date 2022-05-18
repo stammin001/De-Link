@@ -1,12 +1,15 @@
 import { React, useEffect, useState } from "react";
-import { useMoralis, useMoralisWeb3Api, useWeb3Contract} from "react-moralis";
+import { useMoralis, useMoralisWeb3Api, useWeb3Contract, MoralisProvider } from "react-moralis";
 import event_abi from "../constants/event_abi.json";
 import apiclient_abi from "../constants/apiclient_abi.json";
+import oracle_request_abi from "../constants/oracle_request_abi.json";
 import FormData from "./FormData";
 import classes from "./form.module.css";
+import * as ethers from "ethers";
+import * as utils from "ethers/lib/utils";
 
 export default function FormHandler() {
-    const { Moralis, isWeb3Enabled, chainId: chainIdHex } = useMoralis();
+    const { web3, Moralis, isWeb3Enabled, chainId } = useMoralis();
     const Web3Api = useMoralisWeb3Api();
 
     const contractAddress = "0xEc2833eDDe62f700CC88a933097D6094883238a8";
@@ -40,18 +43,22 @@ export default function FormHandler() {
 
     async function handleError(tx) {
         console.log(tx.message);
+        updateStatus("User Denied Transaction");
     };
 
     async function handleValidateCreds(tx) {
         console.log("Transaction is being processed", tx);
+        updateStatus("Transaction is in progress...");
         if(tx !== undefined)
             await tx.wait(1);
         console.log("handle success", tx);
+        handleEvents(tx);
     };
 
     async function handleGetCreds(data) {
         console.log("Returned Data: ", data, "Result Data: ", getResult(data));
         document.getElementById("result").innerHTML = getResult(data);
+        updateStatus("");
     };
 
     function getResult(data) {
@@ -68,15 +75,19 @@ export default function FormHandler() {
         }
     }
 
+    function updateStatus(message) {
+        document.getElementById("status").innerHTML = message;
+    }
+
     const eventOptions = {
-        chain: "rinkeby",
+        chain: "rinkeby", 
         address: eventsAddress,
         topic: "0x18bbbb84e3377ef5571d4752248b89a6c8fc102267139c9012e250a82da7520a",
-        limit: "3",
+        limit: "30",
         abi: event_abi,
     };
 
-    async function handleEvents(requestId) {
+    async function handleOracleEvent(requestId) {
         const events = await Web3Api.native.getContractEvents(eventOptions);
         console.log("Events = ", events);
         for(const event of events.result) {
@@ -84,13 +95,41 @@ export default function FormHandler() {
                 document.getElementById("result").innerHTML = getResult(event.data.value);
             }
         }
+        updateStatus("");
+    };
+
+    async function handleEvents(transaction) {
+        const hash = transaction == undefined ? 
+            "0x6d77f9d8c44b8651525b9cdb7c776bf9bb7eab2830e8565ec5713d39fb8ccd4b" : transaction.hash;
+        const options = {
+            chain: chainId, 
+            transaction_hash: hash,
+        };
+        console.log("Waiting for 30 seconds");
+        updateStatus("Waiting for Oracle response...");
+        await new Promise(r => setTimeout(r, 30000));
+
+        let tx = await Web3Api.native.getTransaction(options);
+        console.log("Transaction = ", tx);
+
+        const typesArray = oracle_request_abi.inputs.filter((input) => { return !input.indexed});
+        const decoded = utils.defaultAbiCoder.decode(typesArray, tx.logs[3].data);
+        console.log("Decoded Value = ", decoded);
+
+        handleOracleEvent(decoded.requestId);
     };
 
     return (
         <div className={classes.form}>
-            <h2 className="">
-                Education Credentials
-            </h2>
+            <div className={classes.row}>
+                <div className={classes.column}>
+                    <h3>Education Credentials</h3>
+                </div>
+                <div className={classes.column2}>
+                    <h3 id="status"></h3>
+                </div>
+            </div>
+        
             <FormData setInput={setInput} setId={setId} setUniversity={setUniversity} setDegree={setDegree} />
             <br></br>
             <div className={classes.actions2}>
@@ -122,7 +161,7 @@ export default function FormHandler() {
             <div className={classes.actions2}>
             <button
                 onClick={async () =>
-                    await handleEvents("0xfb39f9dfd93fc24188233e11484a43f8b1f16096f01191f50510ab0d237a5455")
+                    await handleEvents()
                 }
             >
                 Get Contract Events

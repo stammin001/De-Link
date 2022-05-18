@@ -25,6 +25,7 @@
     "@types/chai": "^4.3.1",
     "@types/mocha": "^9.1.1",
     "@types/node": "^17.0.33",
+    "@types/react": "^18.0.9",
     "autoprefixer": "^10.4.7",
     "chai": "^4.3.6",
     "eslint": "8.14.0",
@@ -44,6 +45,8 @@
   "homepage": "https://github.com/stammin001/Link3.0#readme",
   "dependencies": {
     "@chainlink/contracts": "^0.4.0",
+    "@chainlink/token": "^1.1.0",
+    "@openzeppelin/contracts": "^4.6.0",
     "dotenv": "^16.0.0",
     "magic-sdk": "7.0.0",
     "moralis": "^1.6.0",

@@ -23,12 +23,34 @@ contract APIConsumer is ChainlinkClient, AccessControlEnumerable {
         uint256 indexed value
     );
 
-    constructor() {
+    constructor(address _oracle, string memory _jobId, uint256 _fee, address _link) {
         _setupRole(DEFAULT_ADMIN_ROLE, msg.sender);
-        setChainlinkToken(0x01BE23585060835E02B77ef475b0Cc51aA1e0709);
-        oracle = 0xD0691a51e3C6c562691D3C44C2944Bd9D368Ec1f;
-        jobId = "635e55a66ee64f2597bf5da1170f2824";
-        fee = ORACLE_PAYMENT;
+        _setupRole(ADMIN, msg.sender);
+
+        if (_link == address(0)) {
+            setPublicChainlinkToken();
+            setChainlinkToken(0x01BE23585060835E02B77ef475b0Cc51aA1e0709);
+        } else {
+            setChainlinkToken(_link);
+        }
+
+        if (_oracle == address(0)) {
+            oracle = 0xD0691a51e3C6c562691D3C44C2944Bd9D368Ec1f;
+        } else {
+            oracle = _oracle;
+        }
+
+        if (bytes(_jobId).length == 0) {
+            jobId = "635e55a66ee64f2597bf5da1170f2824";
+        } else {
+            jobId = stringToBytes32(_jobId);
+        }
+
+        if(_fee == 0) {
+            fee = ORACLE_PAYMENT;
+        } else {
+            fee = _fee;
+        }
     }
 
     function setOracleJobFee(address _oracle, string memory _jobId, uint256 _fee) public onlyRole(ADMIN) {
@@ -54,7 +76,11 @@ contract APIConsumer is ChainlinkClient, AccessControlEnumerable {
     function getValue(string memory _url) public onlyRole(ADMIN) view returns(uint256) {
         return consumerResps[consumerReqs[_url]];
     }
- 
+    
+    function getOracle() public onlyRole(ADMIN) view returns(address) {
+        return oracle;
+    }
+
     function stringToBytes32(string memory source) private pure returns (bytes32 result) {
         bytes memory tempEmptyStringTest = bytes(source);
         if (tempEmptyStringTest.length == 0) {

@@ -1,7 +1,8 @@
 import { waffle } from "hardhat";
-import { apiClientFixture } from "../shared/fixtures";
+import { apiClientFixture, apiConsumerFixture } from "../shared/fixtures";
 import { Signers } from "../shared/types";
-import { shouldGetCreds, shouldValidateCreds } from "./APIClient/APIClient.spec";
+import { shouldGetCreds, shouldValidateCreds } from "./APIClient.spec";
+import { shouldGetValue } from "./APIConsumer.spec";
 
 describe(`Unit Tests`, async () => {
   before(async function () {
@@ -22,9 +23,21 @@ describe(`Unit Tests`, async () => {
 
     });
 
-    shouldGetCreds();
+//    shouldGetCreds();
 
-    shouldValidateCreds();
+//    shouldValidateCreds();
+
+  });
+
+  describe(`APIConsumer`, async () => {
+    beforeEach(async function () {
+      const { apiConsumer } = await this.loadFixture(apiConsumerFixture);
+
+      this.apiConsumer = apiConsumer;
+
+    });
+
+    shouldGetValue();
 
   });
 });

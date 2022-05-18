@@ -4,7 +4,7 @@ import { waffle } from "hardhat";
 import * as utils from "ethers/lib/utils";
 import APIConsumer from "../../artifacts/contracts/APIConsumer.sol/APIConsumer.json";
 
-export async function deployMockAPIConsumer(deployer: Signer): Promise<MockContract> {
+async function deployMockAPIConsumer(deployer: Signer): Promise<MockContract> {
     const apiConsumer: MockContract = await waffle.deployMockContract(
         deployer,
         APIConsumer.abi
@@ -15,3 +15,5 @@ export async function deployMockAPIConsumer(deployer: Signer): Promise<MockContr
 
     return apiConsumer;
 }
+
+export { deployMockAPIConsumer };

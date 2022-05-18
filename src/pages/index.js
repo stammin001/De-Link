@@ -12,7 +12,8 @@ export default function Home() {
 
     return (
         <main className={styles.container}>
-            <Header />
+            
+            <Header/>
 
             {isWeb3Enabled ? (
                 <>

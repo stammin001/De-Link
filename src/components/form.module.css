@@ -67,3 +67,21 @@
     background-color: #29a4e7;
     border-color: #29a4e7;
 }
+
+.column {
+    float: left;
+    padding-right: 40px;
+    height: 60px;
+}
+  
+.column2 {
+    float: left;
+    height: 60px;
+    color: red;
+}
+
+.row {
+    content: "";
+    display: table;
+    clear: both;
+}

@@ -4,7 +4,7 @@ export default function Header() {
     return (
         <nav>
             <h1 className="">
-                Chainlink Hackathon Project
+                Link3.0 (Chainlink Hackathon Project)
             </h1>
             <div className="">
                 <ConnectButton moralisAuth={false} />

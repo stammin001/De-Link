@@ -1,12 +1,10 @@
 .container {
   margin: auto;
-  padding-left: 10px;
   align-self: center;
   align-items: center;
 }
 
 .main {
-  min-height: 20vh;
   padding: 4rem 0;
   flex: 1;
   display: flex;

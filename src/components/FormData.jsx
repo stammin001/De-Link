@@ -36,11 +36,11 @@ export default function FormData(props) {
                 </div>
                 <div className={classes.control}>
                     <label htmlFor="university">University</label>
-                    <input type="text" id="university" ref={universityInputRef}/>
+                    <input type="text" required id="university" ref={universityInputRef}/>
                 </div>
                 <div className={classes.control}>
                     <label htmlFor="degree">Degree</label>
-                    <input type="text" id="degree" ref={degreeInputRef}/>
+                    <input type="text" required id="degree" ref={degreeInputRef}/>
                 </div> 
                 <div className={classes.control}>
                     <label htmlFor="result">Result</label>

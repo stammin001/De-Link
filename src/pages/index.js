@@ -16,7 +16,7 @@ export default function Home() {
             <Head>
                 <title>De-Link</title>
                 <meta name="description" content="Improving Trust" />
-                <link rel="icon" href="/favicon.ico" />
+                <link rel="icon" href="images/favicon.ico" />
             </Head>
 
             <main className={styles.main}>

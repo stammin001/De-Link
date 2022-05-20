@@ -5,15 +5,14 @@ import apiclient_abi from "../constants/apiclient_abi.json";
 import oracle_request_abi from "../constants/oracle_request_abi.json";
 import FormData from "./FormData";
 import classes from "./form.module.css";
-import * as ethers from "ethers";
 import * as utils from "ethers/lib/utils";
 
 export default function FormHandler() {
     const { web3, Moralis, isWeb3Enabled, chainId } = useMoralis();
     const Web3Api = useMoralisWeb3Api();
 
-    const contractAddress = "0xEc2833eDDe62f700CC88a933097D6094883238a8";
-    const eventsAddress = "0xd724732DCC2A4D9BF1FB88C66ead347fd5aD95F1";
+    const contractAddress = process.env.NEXT_PUBLIC_CONTRACT_ADDRESS;
+    const eventsAddress = process.env.NEXT_PUBLIC_EVENT_ADDRESS;
 
     const [id, setId] = useState("");
     const [university, setUniversity] = useState("");
@@ -80,9 +79,9 @@ export default function FormHandler() {
     }
 
     const eventOptions = {
-        chain: "rinkeby", 
+        chain: chainId, 
         address: eventsAddress,
-        topic: "0x18bbbb84e3377ef5571d4752248b89a6c8fc102267139c9012e250a82da7520a",
+        topic: process.env.NEXT_PUBLIC_TOPIC, 
         limit: "30",
         abi: event_abi,
     };
@@ -158,7 +157,7 @@ export default function FormHandler() {
             </button>
             </div>
             
-            <div className={classes.actions2}>
+            <div className={classes.actions3}>
             <button
                 onClick={async () =>
                     await handleEvents()

@@ -51,6 +51,14 @@
     padding-right: 1rem;
 }
 
+.actions3 {
+    margin-top: 0.5rem;
+    text-align: left;
+    float: left;
+    padding-right: 1rem;
+    display: none;
+}
+
 .actions2 button {
     font: inherit;
     cursor: pointer;

@@ -23,9 +23,9 @@ describe(`Unit Tests`, async () => {
 
     });
 
-//    shouldGetCreds();
+    shouldGetCreds();
 
-//    shouldValidateCreds();
+    shouldValidateCreds();
 
   });
 
@@ -37,7 +37,7 @@ describe(`Unit Tests`, async () => {
 
     });
 
-    shouldGetValue();
+//    shouldGetValue();
 
   });
 });

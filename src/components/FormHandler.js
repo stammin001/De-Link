@@ -42,7 +42,13 @@ export default function FormHandler() {
 
     async function handleError(tx) {
         console.log(tx.message);
-        updateStatus("User Denied Transaction");
+        if(tx.code === 4001) {
+            updateStatus("User denied transaction");
+        } else {
+            updateStatus(tx.message);
+        }
+        await new Promise(r => setTimeout(r, 2000));
+        updateStatus("");    
     };
 
     async function handleValidateCreds(tx) {

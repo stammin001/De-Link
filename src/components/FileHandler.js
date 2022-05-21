@@ -5,47 +5,66 @@ import { useMoralis } from "react-moralis";
 export default function FileHandler() {
 
     const {Moralis, isAuthenticated} = useMoralis();
+    var docName = "";
+
+    function selectFile() {
+        const inputFile = document.getElementById("inputfile");
+        inputFile.click();
+        inputFile.onchange = () => uploadFile();
+    }
 
     async function uploadFile() {
-        const data = document.getElementById("testfile").files[0];
+        console.log("In uploadFile");
+        updateStatus("Saving File on IPFS");
+        const data = document.getElementById("inputfile").files[0];
+        
         if(!isAuthenticated) {
             await Moralis.authenticate();
         }
         const file = new Moralis.File(data.name, data);
         await file.saveIPFS();
 
-        console.log("Data =", data);
-        console.log("File hash=", file.hash());
-        console.log("File IPFS=", file.ipfs());
+        console.log("Data =", data, " File has=", file.hash, " File IPFS=", file.ipfs);
 
         const fileRef = new Moralis.Object("Applications");
+        docName = data.name;
         fileRef.set("name", data.name);
-        fileRef.set("cert", file);
+        fileRef.set("doc", file);
         await fileRef.save();
+        updateStatus("");
     };
 
-    async function downloadFile() {
+    async function viewFile() {
         const query = new Moralis.Query("Applications");
-        query.equalTo("name", "puppy_1.jpg");
+        query.equalTo("name", docName);
         query.find().then(function ([application]) {
-            const ipfs = application.get("cert").ipfs();
-            const hash = application.get("cert").hash();
-            console.log("IPFS url", ipfs);
-            console.log("IPFS hash", hash);
+            if(application != undefined) {
+                const ipfs = application.get("doc").ipfs();
+                const hash = application.get("doc").hash();
+                console.log("IPFS url=", ipfs, " IPFS has=", hash);
+
+                window.open(ipfs, "_blank");
+            }
         });
     };
 
+    function updateStatus(message) {
+        document.getElementById("status").innerHTML = message;
+    }
+
     return (
-        <div className={classes.actions2}>
-            <input type="file" id="testfile" name="testfile"/>
+        <div>
+            <div className={classes.actions2}>
+                <input type="file" id="inputfile" hidden/>
 
-            <button onClick={uploadFile}>
-                Upload
-            </button>
+                <button onClick={selectFile} id="uploadDoc">
+                    Upload Document
+                </button>
 
-            <button onClick={downloadFile}>
-                Download
-            </button>
+                <button onClick={viewFile}>
+                    View Document
+                </button>
+            </div>
         </div>
     );
 }

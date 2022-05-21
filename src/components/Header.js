@@ -1,6 +1,8 @@
 import { ConnectButton } from "web3uikit";
+import { useMoralis } from "react-moralis";
 
 export default function Header() {
+    const {isInitialized} = useMoralis();
     return (
         <nav>
             <h1 className="">
@@ -9,6 +11,6 @@ export default function Header() {
             <div className="">
                 <ConnectButton moralisAuth={false} />
             </div>
-        </nav>
+        </nav>        
     );
 }

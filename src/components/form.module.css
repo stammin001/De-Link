@@ -68,6 +68,7 @@
     border: 1px solid #296fe7;
     border-radius: 4px;
     font-weight: bold;
+    margin: 10px;
 }
 
 .actions2 button:hover,

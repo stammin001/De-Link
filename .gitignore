@@ -368,3 +368,4 @@ cache/
 deployments/
 .env
 typechain/
+.pinata

@@ -12,49 +12,12 @@
     },
     {
         "inputs": [],
-        "name": "URL",
-        "outputs": [
-            {
-                "internalType": "string",
-                "name": "",
-                "type": "string"
-            }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "inputs": [],
         "name": "consumer",
         "outputs": [
             {
                 "internalType": "contract APIConsumer",
                 "name": "",
                 "type": "address"
-            }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
-                "internalType": "address",
-                "name": "",
-                "type": "address"
-            },
-            {
-                "internalType": "string",
-                "name": "",
-                "type": "string"
-            }
-        ],
-        "name": "creds",
-        "outputs": [
-            {
-                "internalType": "uint256",
-                "name": "",
-                "type": "uint256"
             }
         ],
         "stateMutability": "view",
@@ -83,11 +46,56 @@
         "inputs": [
             {
                 "internalType": "address",
+                "name": "_input",
+                "type": "address"
+            }
+        ],
+        "name": "getDocs",
+        "outputs": [
+            {
+                "internalType": "string[]",
+                "name": "",
+                "type": "string[]"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "_input",
+                "type": "address"
+            }
+        ],
+        "name": "resetDocs",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
                 "name": "_consumer",
                 "type": "address"
             }
         ],
         "name": "setConsumer",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "string",
+                "name": "_input",
+                "type": "string"
+            }
+        ],
+        "name": "uploadDoc",
         "outputs": [],
         "stateMutability": "nonpayable",
         "type": "function"

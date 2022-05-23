@@ -94,3 +94,9 @@
     display: table;
     clear: both;
 }
+
+.logo {
+    width: 30px;
+    height: 30px;
+    padding-right: 8px;
+}

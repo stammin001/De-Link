@@ -15,8 +15,8 @@ export default function Home() {
     return (
         <div className={styles.container}>
             <Head>
-                <title>De-Link</title>
-                <link rel="icon" href="/favicon.ico" />
+                <title>DeLink | Imporving Trust</title>
+                <link rel="icon" href="/delink.png" />
                 <meta name="description" content="Improving Trust" />
             </Head>
 

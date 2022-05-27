@@ -8,7 +8,7 @@ import "@chainlink/contracts/src/v0.8/ChainlinkClient.sol";
 import "@openzeppelin/contracts/access/AccessControlEnumerable.sol";
 
 /// @title Contract that interacts with API using ChainLink Oracle
-/// @notice This is used only by allowed addresses to request/consume data from API
+/// @notice This is only used by allowed addresses to request/consume data from API
 /// @dev ADMIN role should be assigned to addresses that can interact with this
 contract APIConsumer is ChainlinkClient, AccessControlEnumerable {
     using Chainlink for Chainlink.Request;

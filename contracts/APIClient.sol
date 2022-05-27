@@ -9,6 +9,7 @@ import "./APIConsumer.sol";
 /// @notice This is used to get credentials status and store links to docs
 contract APIClient {
 
+    /// URL is hard coded just for prototype purposes. Will have to be part of custom ChainLink adapter
     string private constant URL = "https://my-json-server.typicode.com/stammin001/mock-api/users?";
     string private constant PATH = "0,graduated";
     mapping(address => string[]) private docs;
